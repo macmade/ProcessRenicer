@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		058BCF7112EF70D5003DF741 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058BCF7012EF70D5003DF741 /* Cocoa.framework */; };
+		058BCF7B12EF70D5003DF741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 058BCF7912EF70D5003DF741 /* InfoPlist.strings */; };
+		058BCF7E12EF70D5003DF741 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 058BCF7D12EF70D5003DF741 /* main.m */; };
+		058BCF8712EF70D6003DF741 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058BCF8512EF70D6003DF741 /* MainMenu.xib */; };
+		0595CCBB12EFF85C006A51F8 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0595CCB812EFF85C006A51F8 /* ApplicationDelegate.m */; };
+		0595CCC512EFFF32006A51F8 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0595CCC312EFFF32006A51F8 /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		058BCF6C12EF70D5003DF741 /* ProcessRenicer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProcessRenicer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		058BCF7012EF70D5003DF741 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		058BCF7312EF70D5003DF741 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		058BCF7412EF70D5003DF741 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		058BCF7512EF70D5003DF741 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		058BCF7812EF70D5003DF741 /* ProcessRenicer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProcessRenicer-Info.plist"; sourceTree = "<group>"; };
+		058BCF7A12EF70D5003DF741 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		058BCF7C12EF70D5003DF741 /* ProcessRenicer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProcessRenicer-Prefix.pch"; sourceTree = "<group>"; };
+		058BCF7D12EF70D5003DF741 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		058BCF8612EF70D6003DF741 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0595CCB812EFF85C006A51F8 /* ApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationDelegate.m; sourceTree = "<group>"; };
+		0595CCBA12EFF85C006A51F8 /* ApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationDelegate.h; sourceTree = "<group>"; };
+		0595CCC212EFFEB9006A51F8 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macros.h; sourceTree = "<group>"; };
+		0595CCC412EFFF32006A51F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		058BCF6912EF70D5003DF741 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				058BCF7112EF70D5003DF741 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		058BCF6112EF70D5003DF741 = {
+			isa = PBXGroup;
+			children = (
+				058BCF7612EF70D5003DF741 /* ProcessRenicer */,
+				058BCF6F12EF70D5003DF741 /* Frameworks */,
+				058BCF6D12EF70D5003DF741 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		058BCF6D12EF70D5003DF741 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				058BCF6C12EF70D5003DF741 /* ProcessRenicer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		058BCF6F12EF70D5003DF741 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				058BCF7012EF70D5003DF741 /* Cocoa.framework */,
+				058BCF7212EF70D5003DF741 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		058BCF7212EF70D5003DF741 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				058BCF7312EF70D5003DF741 /* AppKit.framework */,
+				058BCF7412EF70D5003DF741 /* CoreData.framework */,
+				058BCF7512EF70D5003DF741 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		058BCF7612EF70D5003DF741 /* ProcessRenicer */ = {
+			isa = PBXGroup;
+			children = (
+				0595CCB712EFF85C006A51F8 /* Classes */,
+				0595CCBC12EFF875006A51F8 /* UI */,
+				058BCF7712EF70D5003DF741 /* Supporting Files */,
+			);
+			path = ProcessRenicer;
+			sourceTree = "<group>";
+		};
+		058BCF7712EF70D5003DF741 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0595CCC112EFFEAA006A51F8 /* include */,
+				058BCF7812EF70D5003DF741 /* ProcessRenicer-Info.plist */,
+				058BCF7912EF70D5003DF741 /* InfoPlist.strings */,
+				058BCF7C12EF70D5003DF741 /* ProcessRenicer-Prefix.pch */,
+				058BCF7D12EF70D5003DF741 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0595CCB712EFF85C006A51F8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0595CCB812EFF85C006A51F8 /* ApplicationDelegate.m */,
+				0595CCB912EFF85C006A51F8 /* include */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0595CCB912EFF85C006A51F8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				0595CCBA12EFF85C006A51F8 /* ApplicationDelegate.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		0595CCBC12EFF875006A51F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				058BCF8512EF70D6003DF741 /* MainMenu.xib */,
+				0595CCC312EFFF32006A51F8 /* MainWindow.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		0595CCC112EFFEAA006A51F8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				0595CCC212EFFEB9006A51F8 /* macros.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		058BCF6B12EF70D5003DF741 /* ProcessRenicer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 058BCF8A12EF70D6003DF741 /* Build configuration list for PBXNativeTarget "ProcessRenicer" */;
+			buildPhases = (
+				058BCF6812EF70D5003DF741 /* Sources */,
+				058BCF6912EF70D5003DF741 /* Frameworks */,
+				058BCF6A12EF70D5003DF741 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProcessRenicer;
+			productName = ProcessRenicer;
+			productReference = 058BCF6C12EF70D5003DF741 /* ProcessRenicer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		058BCF6312EF70D5003DF741 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = eosgarden;
+			};
+			buildConfigurationList = 058BCF6612EF70D5003DF741 /* Build configuration list for PBXProject "ProcessRenicer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 058BCF6112EF70D5003DF741;
+			productRefGroup = 058BCF6D12EF70D5003DF741 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				058BCF6B12EF70D5003DF741 /* ProcessRenicer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		058BCF6A12EF70D5003DF741 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				058BCF7B12EF70D5003DF741 /* InfoPlist.strings in Resources */,
+				058BCF8712EF70D6003DF741 /* MainMenu.xib in Resources */,
+				0595CCC512EFFF32006A51F8 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		058BCF6812EF70D5003DF741 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				058BCF7E12EF70D5003DF741 /* main.m in Sources */,
+				0595CCBB12EFF85C006A51F8 /* ApplicationDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		058BCF7912EF70D5003DF741 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				058BCF7A12EF70D5003DF741 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		058BCF8512EF70D6003DF741 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				058BCF8612EF70D6003DF741 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		0595CCC312EFFF32006A51F8 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0595CCC412EFFF32006A51F8 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		058BCF8812EF70D6003DF741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		058BCF8912EF70D6003DF741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		058BCF8B12EF70D6003DF741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ProcessRenicer/ProcessRenicer-Prefix.pch";
+				INFOPLIST_FILE = "ProcessRenicer/ProcessRenicer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		058BCF8C12EF70D6003DF741 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ProcessRenicer/ProcessRenicer-Prefix.pch";
+				INFOPLIST_FILE = "ProcessRenicer/ProcessRenicer-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		058BCF6612EF70D5003DF741 /* Build configuration list for PBXProject "ProcessRenicer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				058BCF8812EF70D6003DF741 /* Debug */,
+				058BCF8912EF70D6003DF741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		058BCF8A12EF70D6003DF741 /* Build configuration list for PBXNativeTarget "ProcessRenicer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				058BCF8B12EF70D6003DF741 /* Debug */,
+				058BCF8C12EF70D6003DF741 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 058BCF6312EF70D5003DF741 /* Project object */;
+}
