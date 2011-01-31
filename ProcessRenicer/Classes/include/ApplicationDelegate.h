@@ -11,16 +11,20 @@
  * @abstract    ...
  */
 
+@class MainWindowController;
+
 @interface ApplicationDelegate: NSObject < NSApplicationDelegate >
 {
 @protected
     
-    
+    MainWindowController * mainWindowController;
     
 @private
     
     id r1;
     id r2;
 }
+
+- ( IBAction )showMainWindow: ( id )sender;
 
 @end
