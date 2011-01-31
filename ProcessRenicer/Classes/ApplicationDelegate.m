@@ -12,17 +12,32 @@
  */
 
 #import "ApplicationDelegate.h"
+#import "MainWindowController.h"
 
 @implementation ApplicationDelegate
 
 - ( void )applicationDidFinishLaunching: ( NSNotification * )notification
 {
+    mainWindowController = [ MainWindowController new ];
+    
+    [ mainWindowController.window center ];
+    [ mainWindowController showWindow: self ];
+    [ NSApp activateIgnoringOtherApps: YES ];
+    
     ( void )notification;
 }
 
 - ( void )applicationWillTerminate: ( NSNotification * )notification
 {
+    [ mainWindowController release ];
+    
     ( void )notification;
+}
+
+- ( IBAction )showMainWindow: ( id )sender
+{
+    [ mainWindowController showWindow: sender ];
+    [ NSApp activateIgnoringOtherApps: YES ];
 }
 
 @end
