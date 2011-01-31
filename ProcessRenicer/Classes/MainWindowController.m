@@ -70,8 +70,6 @@
 {
     ( void )null;
     
-    while( processInfos.isRunning == YES );
-    
     [ table reloadData ];
 }
 
@@ -85,88 +83,98 @@
 - ( id )tableView: ( NSTableView * )tableView objectValueForTableColumn: ( NSTableColumn * )column row: ( NSInteger )rowIndex
 {
     Process  * process;
+    id         value;
     NSRange    range;
     
     ( void )tableView;
     ( void )column;
     ( void )rowIndex;
     
-    process = [ processInfos.processes objectAtIndex: rowIndex ];
+    process = [ [ processInfos.processes objectAtIndex: rowIndex ] retain ];
     
     if( [ [ column identifier ] isEqualToString: @"pid" ] )
     {
-        return [ NSString stringWithFormat: @"%u", ( unsigned int )process.pid ];
+        
+        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.pid ];
     }
     else if( [ [ column identifier ] isEqualToString: @"ppid" ] )
     {
-        return [ NSString stringWithFormat: @"%u", ( unsigned int )process.ppid ];
+        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.ppid ];
     }
     else if( [ [ column identifier ] isEqualToString: @"uid" ] )
     {
-        return [ NSString stringWithFormat: @"%u", ( unsigned int )process.uid ];
+        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.uid ];
     }
     else if( [ [ column identifier ] isEqualToString: @"gid" ] )
     {
-        return [ NSString stringWithFormat: @"%u", ( unsigned int )process.gid ];
+        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.gid ];
     }
     else if( [ [ column identifier ] isEqualToString: @"nice" ] )
     {
-        return [ NSString stringWithFormat: @"%u", ( unsigned int )process.nice ];
+        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.nice ];
     }
     else if( [ [ column identifier ] isEqualToString: @"pri" ] )
     {
-        return [ NSString stringWithFormat: @"%u", ( unsigned int )process.pri ];
+        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.pri ];
     }
     else if( [ [ column identifier ] isEqualToString: @"cpu" ] )
     {
-        return [ NSString stringWithFormat: @"%u %%", ( unsigned int )process.cpu ];
+        value = [ NSString stringWithFormat: @"%u %%", ( unsigned int )process.cpu ];
     }
     else if( [ [ column identifier ] isEqualToString: @"mem" ] )
     {
-        return [ NSString stringWithFormat: @"%u %%", ( unsigned int )process.mem ];
+        value = [ NSString stringWithFormat: @"%u %%", ( unsigned int )process.mem ];
     }
     else if( [ [ column identifier ] isEqualToString: @"rss" ] )
     {
-        return [ NSString stringWithFormat: @"%u", ( unsigned int )process.rss ];
+        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.rss ];
     }
     else if( [ [ column identifier ] isEqualToString: @"vsz" ] )
     {
-        return [ NSString stringWithFormat: @"%u", ( unsigned int )process.vsz ];
+        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.vsz ];
     }
     else if( [ [ column identifier ] isEqualToString: @"paddr" ] )
     {
-        return process.paddr;
+        value = process.paddr;
     }
     else if( [ [ column identifier ] isEqualToString: @"lstart" ] )
     {
-        return process.lstart;
+        value = process.lstart;
     }
     else if( [ [ column identifier ] isEqualToString: @"name" ] )
     {
-        return process.name;
+        value = process.name;
     }
     else if( [ [ column identifier ] isEqualToString: @"user" ] )
     {
-        return process.user;
+        value = process.user;
     }
     else if( [ [ column identifier ] isEqualToString: @"icon" ] )
     {
-        if( [ process.command length ] && [ [ process.command substringToIndex: 1 ] isEqualToString: @"/" ] == NO )
+        if( [ process.command length ] && [ process.command length ] > 0 && [ [ process.command substringToIndex: 1 ] isEqualToString: @"/" ] == NO )
         {
-            return nil;
+            value = nil;
         }
         
         range = [ process.command rangeOfString: @".app/Contents/MacOS/" ];
         
         if( range.location != NSNotFound )
         {
-            return [ [ NSWorkspace sharedWorkspace ] iconForFile: [ process.command substringToIndex: range.location + 4 ] ];
+            value = [ [ NSWorkspace sharedWorkspace ] iconForFile: [ process.command substringToIndex: range.location + 4 ] ];
         }
-        
-        return nil;
+        else
+        {
+            value = nil;
+        }
+    }
+    else
+    {
+        value = @"";
     }
     
-    return @"";
+    [ process release ];
+    
+    return value;
 }
 
 - ( void )tableView: ( NSTableView * )tableView willDisplayCell: ( id )cell forTableColumn: ( NSTableColumn * )tableColumn row: ( NSInteger )rowIndex

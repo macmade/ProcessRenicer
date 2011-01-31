@@ -52,11 +52,6 @@
             ap = [ NSAutoreleasePool new ];
         }
         
-        running = YES;
-        
-        [ processes release ];
-        
-        processes   = [ [ NSMutableDictionary dictionaryWithCapacity: 100 ] retain ];
         processDict = [ NSMutableDictionary dictionaryWithCapacity: 100 ];
         
         /***********************************************************************
@@ -223,11 +218,11 @@
             {
                 continue;
             }
-            
-            [ processes setObject: process forKey: [ NSString stringWithFormat: @"%06u", ( unsigned int )pid ] ];
         }
         
-        running = NO;
+        
+        [ processes removeAllObjects ];
+        [ processes setValuesForKeysWithDictionary: processDict ];
         
         exitThread = [ [ threadDict valueForKey: @"ASLThreadShouldExit" ] boolValue ];
         
@@ -248,12 +243,11 @@
 
 @implementation ProcessInfos
 
-@synthesize running;
-
 - ( id )init
 {
     if( ( self = [ super init ] ) )
     {
+        processes = [ [ NSMutableDictionary dictionaryWithCapacity: 100 ] retain ];
         [ self performSelectorInBackground: @selector( getProcesses ) withObject: nil ];
     }
     
@@ -269,8 +263,6 @@
 - ( NSArray * )processes
 {
     NSArray * values;
-    
-    while( self.isRunning == YES );
     
     values = [ [ processes allValues ] sortedArrayUsingComparator: ^( Process * obj1, Process * obj2 )
         {

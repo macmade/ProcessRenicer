@@ -55,7 +55,11 @@
 
 - ( void )dealloc
 {
-    [ super dealloc ];
+    [ command release ];
+    [ lstart  release ];
+    [ paddr   release ];
+    [ user    release ];
+    [ super   dealloc ];
 }
 
 - ( NSString * )description

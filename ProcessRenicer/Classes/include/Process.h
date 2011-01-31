@@ -43,20 +43,20 @@
 }
 
 @property( assign, readwrite ) NSInteger  pid;
-@property( assign, readwrite ) NSString * name;
+@property( copy,   readwrite ) NSString * name;
 @property( assign, readwrite ) NSInteger  cpu;
 @property( assign, readwrite ) NSInteger  mem;
-@property( assign, readwrite ) NSString * command;
+@property( copy,   readwrite ) NSString * command;
 @property( assign, readwrite ) NSInteger  gid;
-@property( assign, readwrite ) NSString * lstart;
+@property( copy,   readwrite ) NSString * lstart;
 @property( assign, readwrite ) NSInteger  nice;
-@property( assign, readwrite ) NSString * paddr;
+@property( copy,   readwrite ) NSString * paddr;
 @property( assign, readwrite ) NSInteger  pgid;
 @property( assign, readwrite ) NSInteger  ppid;
 @property( assign, readwrite ) NSInteger  pri;
 @property( assign, readwrite ) NSInteger  rss;
 @property( assign, readwrite ) NSInteger  uid;
-@property( assign, readwrite ) NSString * user;
+@property( copy,   readwrite ) NSString * user;
 @property( assign, readwrite ) NSInteger  vsz;
 
 + ( Process * )processWithPid: ( NSUInteger )processId name: processName;

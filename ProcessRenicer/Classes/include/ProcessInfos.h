@@ -20,7 +20,6 @@
 @protected
     
     NSMutableDictionary * processes;
-    BOOL                  running;
     
 @private
     
@@ -29,6 +28,5 @@
 }
 
 @property( readonly ) NSArray * processes;
-@property( readonly, getter = isRunning ) BOOL running;
 
 @end
