@@ -13,6 +13,9 @@
 		058BCF8712EF70D6003DF741 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058BCF8512EF70D6003DF741 /* MainMenu.xib */; };
 		0595CCBB12EFF85C006A51F8 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0595CCB812EFF85C006A51F8 /* ApplicationDelegate.m */; };
 		0595CCC512EFFF32006A51F8 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0595CCC312EFFF32006A51F8 /* MainWindow.xib */; };
+		0595CCD312F0246E006A51F8 /* Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 0595CCD212F0246E006A51F8 /* Process.m */; };
+		0595CCD812F030CE006A51F8 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0595CCD712F030CE006A51F8 /* MainWindowController.m */; };
+		0595CCE412F03753006A51F8 /* ProcessInfos.m in Sources */ = {isa = PBXBuildFile; fileRef = 0595CCE312F03753006A51F8 /* ProcessInfos.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,12 @@
 		0595CCCE12F00104006A51F8 /* __arm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __arm.h; sourceTree = "<group>"; };
 		0595CCCF12F00104006A51F8 /* __i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __i386.h; sourceTree = "<group>"; };
 		0595CCD012F00104006A51F8 /* eos-skl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "eos-skl.h"; sourceTree = "<group>"; };
+		0595CCD212F0246E006A51F8 /* Process.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Process.m; sourceTree = "<group>"; };
+		0595CCD412F0247B006A51F8 /* Process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Process.h; sourceTree = "<group>"; };
+		0595CCD712F030CE006A51F8 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		0595CCDA12F030E7006A51F8 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		0595CCE312F03753006A51F8 /* ProcessInfos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessInfos.m; sourceTree = "<group>"; };
+		0595CCE612F03762006A51F8 /* ProcessInfos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessInfos.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				0595CCB812EFF85C006A51F8 /* ApplicationDelegate.m */,
+				0595CCD712F030CE006A51F8 /* MainWindowController.m */,
+				0595CCD212F0246E006A51F8 /* Process.m */,
+				0595CCE312F03753006A51F8 /* ProcessInfos.m */,
 				0595CCB912EFF85C006A51F8 /* include */,
 			);
 			path = Classes;
@@ -119,6 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				0595CCBA12EFF85C006A51F8 /* ApplicationDelegate.h */,
+				0595CCDA12F030E7006A51F8 /* MainWindowController.h */,
+				0595CCD412F0247B006A51F8 /* Process.h */,
+				0595CCE612F03762006A51F8 /* ProcessInfos.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -233,6 +248,9 @@
 			files = (
 				058BCF7E12EF70D5003DF741 /* main.m in Sources */,
 				0595CCBB12EFF85C006A51F8 /* ApplicationDelegate.m in Sources */,
+				0595CCD312F0246E006A51F8 /* Process.m in Sources */,
+				0595CCD812F030CE006A51F8 /* MainWindowController.m in Sources */,
+				0595CCE412F03753006A51F8 /* ProcessInfos.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
