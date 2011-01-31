@@ -20,6 +20,7 @@
 @protected
     
     NSMutableDictionary * processes;
+    NSLock              * lock;
     
 @private
     
@@ -28,5 +29,6 @@
 }
 
 @property( readonly ) NSArray * processes;
+@property( readonly ) NSLock  * lock;
 
 @end

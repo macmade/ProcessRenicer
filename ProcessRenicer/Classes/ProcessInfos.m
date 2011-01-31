@@ -220,9 +220,11 @@
             }
         }
         
+        while( [ self.lock tryLock ] == NO );
         
         [ processes removeAllObjects ];
         [ processes setValuesForKeysWithDictionary: processDict ];
+        [ self.lock unlock ];
         
         exitThread = [ [ threadDict valueForKey: @"ASLThreadShouldExit" ] boolValue ];
         
@@ -243,11 +245,15 @@
 
 @implementation ProcessInfos
 
+@synthesize lock;
+
 - ( id )init
 {
     if( ( self = [ super init ] ) )
     {
         processes = [ [ NSMutableDictionary dictionaryWithCapacity: 100 ] retain ];
+        lock      = [ NSLock new ];
+        
         [ self performSelectorInBackground: @selector( getProcesses ) withObject: nil ];
     }
     
@@ -256,6 +262,7 @@
 
 - ( void )dealloc
 {
+    [ lock release ];
     [ processes release ];
     [ super dealloc ];
 }
@@ -264,16 +271,28 @@
 {
     NSArray * values;
     
-    values = [ [ processes allValues ] sortedArrayUsingComparator: ^( Process * obj1, Process * obj2 )
+    while( [ self.lock tryLock ] == NO );
+    
+    values = [ processes allValues ];
+    
+    values = [ values sortedArrayUsingComparator: ^( Process * obj1, Process * obj2 )
         {
+            NSComparisonResult result;
+            
             if( obj1.pid > obj2.pid )
             {
-                return ( NSComparisonResult )NSOrderedAscending;
+                result = ( NSComparisonResult )NSOrderedAscending;
+            }
+            else
+            {
+                result = ( NSComparisonResult )NSOrderedDescending;
             }
             
-            return ( NSComparisonResult )NSOrderedDescending;
+            return result;
         }
     ];
+    
+    [ self.lock unlock ];
     
     return values;
 }
