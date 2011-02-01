@@ -281,11 +281,11 @@
             
             if( obj1.pid > obj2.pid )
             {
-                result = ( NSComparisonResult )NSOrderedAscending;
+                result = ( NSComparisonResult )NSOrderedDescending;
             }
             else
             {
-                result = ( NSComparisonResult )NSOrderedDescending;
+                result = ( NSComparisonResult )NSOrderedAscending;
             }
             
             return result;

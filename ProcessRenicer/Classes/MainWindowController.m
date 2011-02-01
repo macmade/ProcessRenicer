@@ -14,13 +14,20 @@
 #import "MainWindowController.h"
 #import "Process.h"
 #import "ProcessInfos.h"
+#import "Execution.h"
 
 @implementation MainWindowController
 
+@synthesize reniceView;
 @synthesize table;
 @synthesize reniceButton;
 @synthesize quitButton;
 @synthesize forceQuitButton;
+@synthesize slider;
+@synthesize niceValue;
+@synthesize pidValue;
+@synthesize nameValue;
+@synthesize image;
 
 - ( id )init
 {
@@ -53,17 +60,122 @@
 
 - ( IBAction )renice: ( id )sender
 {
+    NSIndexSet * index;
+    NSImage    * appImage;
+    NSRange      range;
+    
+    index         = [ table selectedRowIndexes ];
+    activeProcess = [ [ processInfos.processes objectAtIndex: [ index firstIndex ] ] retain ];
+    
     ( void )sender;
+    
+    if( [ activeProcess.command length ] && [ activeProcess.command length ] > 0 && [ [ activeProcess.command substringToIndex: 1 ] isEqualToString: @"/" ] == NO )
+    {
+        appImage = [ NSImage imageNamed: NSImageNameAdvanced ];
+    }
+    
+    range = [ activeProcess.command rangeOfString: @".app/Contents/MacOS/" ];
+    
+    if( range.location != NSNotFound )
+    {
+        appImage = [ [ NSWorkspace sharedWorkspace ] iconForFile: [ activeProcess.command substringToIndex: range.location + 4 ] ];
+    }
+    else
+    {
+        appImage = [ NSImage imageNamed: NSImageNameAdvanced ];
+    }
+    
+    [ image setImage: appImage ];
+    [ pidValue setIntegerValue: activeProcess.pid ];
+    [ nameValue setStringValue: activeProcess.name ];
+    [ niceValue setIntegerValue: activeProcess.nice ];
+    [ slider setIntegerValue: activeProcess.nice ];
+    [ NSApp beginSheet: reniceView modalForWindow: self.window modalDelegate: self didEndSelector: @selector( didEndSheet: returnCode: contextInfo: ) contextInfo: nil ];
+    [ reniceView orderFront: sender ];
 }
 
 - ( IBAction )quit: ( id )sender
 {
+    char       * args[ 3 ];
+    NSIndexSet * index;
+    Process    * process;
+    Execution  * exec;
+    
     ( void )sender;
+    
+    index     = [ table selectedRowIndexes ];
+    process   = [ [ processInfos.processes objectAtIndex: [ index firstIndex ] ] retain ];
+    args[ 0 ] = "-s";
+    args[ 1 ] = "int";
+    args[ 2 ] = ( char * )[ [ NSString stringWithFormat: @"%u", ( unsigned int )process.pid ] cStringUsingEncoding: NSASCIIStringEncoding  ];
+    exec      = [ Execution new ];
+    
+    NSLog( @"KILL: %s", args[ 0 ] );
+    [ exec executeWithPrivileges: "/bin/kill" arguments: args io: NULL ];
+    [ exec release ];
+    [ process release ];
 }
 
 - ( IBAction )forceQuit: ( id )sender
 {
+    char       * args[ 3 ];
+    NSIndexSet * index;
+    Process    * process;
+    Execution  * exec;
+    
     ( void )sender;
+    
+    index     = [ table selectedRowIndexes ];
+    process   = [ [ processInfos.processes objectAtIndex: [ index firstIndex ] ] retain ];
+    args[ 0 ] = "-s";
+    args[ 1 ] = "kill";
+    args[ 2 ] = ( char * )[ [ NSString stringWithFormat: @"%u", ( unsigned int )process.pid ] cStringUsingEncoding: NSASCIIStringEncoding  ];
+    exec      = [ Execution new ];
+    
+    [ exec executeWithPrivileges: "/bin/kill" arguments: args io: NULL ];
+    [ exec release ];
+    [ process release ];
+}
+
+- ( IBAction )confirmRenice: ( id )sender
+{
+    ( void )sender;
+    
+    [ NSApp endSheet: reniceView returnCode: 0 ];
+}
+
+- ( IBAction )cancelRenice: ( id )sender
+{
+    ( void )sender;
+    
+    [ NSApp endSheet: reniceView returnCode: 1 ];
+}
+
+- ( void )executeRenice
+{
+    NSInteger    nice;
+    Execution  * exec;
+    char       * args[ 2 ];
+    
+    nice      = [ slider integerValue ];
+    exec      = [ Execution new ];
+    args[ 1 ] = ( char * )[ [ NSString stringWithFormat: @"%u", ( unsigned int )[ activeProcess pid ] ] cStringUsingEncoding: NSASCIIStringEncoding ];
+    
+    if( nice == 0 )
+    {
+        args[ 0 ] = "0";
+    }
+    else if( nice < 0 )
+    {
+        args[ 0 ] = ( char * )[ [ NSString stringWithFormat: @"-%i", ( int )nice ] cStringUsingEncoding: NSASCIIStringEncoding ];
+    }
+    else if( nice > 0 )
+    {
+        args[ 0 ] = ( char * )[ [ NSString stringWithFormat: @"+%i", ( int )nice ] cStringUsingEncoding: NSASCIIStringEncoding ];
+    }
+    
+    [ exec executeWithPrivileges: "/usr/bin/renice" arguments: args io: NULL ];
+    [ exec release ];
 }
 
 - ( void )refresh: ( id )null
@@ -71,6 +183,22 @@
     ( void )null;
     
     [ table reloadData ];
+}
+
+- ( void )didEndSheet: ( NSWindow * )window returnCode: ( NSInteger )code contextInfo: ( id )context
+{
+    [ window orderOut: nil ];
+    
+    ( void )context;
+    
+    if( code == 0 )
+    {
+        [ self executeRenice ];
+    }
+    
+    [ activeProcess release ];
+    
+    activeProcess = nil;
 }
 
 - ( NSInteger )numberOfRowsInTableView: (NSTableView * )tableView
@@ -175,7 +303,7 @@
     {
         if( [ process.command length ] && [ process.command length ] > 0 && [ [ process.command substringToIndex: 1 ] isEqualToString: @"/" ] == NO )
         {
-            value = nil;
+            value = [ NSImage imageNamed: NSImageNameAdvanced ];
         }
         
         range = [ process.command rangeOfString: @".app/Contents/MacOS/" ];
@@ -186,7 +314,7 @@
         }
         else
         {
-            value = nil;
+            value = [ NSImage imageNamed: NSImageNameAdvanced ];
         }
     }
     else
