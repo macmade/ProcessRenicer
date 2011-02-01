@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0532BBCE12F7F2290015357B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0532BBCD12F7F2290015357B /* Security.framework */; };
 		058BCF7112EF70D5003DF741 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058BCF7012EF70D5003DF741 /* Cocoa.framework */; };
 		058BCF7B12EF70D5003DF741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 058BCF7912EF70D5003DF741 /* InfoPlist.strings */; };
 		058BCF7E12EF70D5003DF741 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 058BCF7D12EF70D5003DF741 /* main.m */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0532BBCD12F7F2290015357B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		058BCF6C12EF70D5003DF741 /* ProcessRenicer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProcessRenicer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		058BCF7012EF70D5003DF741 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		058BCF7312EF70D5003DF741 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -50,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0532BBCE12F7F2290015357B /* Security.framework in Frameworks */,
 				058BCF7112EF70D5003DF741 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				058BCF7012EF70D5003DF741 /* Cocoa.framework */,
+				0532BBCD12F7F2290015357B /* Security.framework */,
 				058BCF7212EF70D5003DF741 /* Other Frameworks */,
 			);
 			name = Frameworks;
