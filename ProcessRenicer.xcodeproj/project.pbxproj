@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0532BBCE12F7F2290015357B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0532BBCD12F7F2290015357B /* Security.framework */; };
+		0532BBD412F7F29A0015357B /* Execution.m in Sources */ = {isa = PBXBuildFile; fileRef = 0532BBD312F7F29A0015357B /* Execution.m */; };
+		0532BBDD12F83F5D0015357B /* Application.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0532BBDC12F83F5D0015357B /* Application.icns */; };
+		0532BBE312F83FC70015357B /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0532BBE212F83FC70015357B /* AboutController.m */; };
 		058BCF7112EF70D5003DF741 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058BCF7012EF70D5003DF741 /* Cocoa.framework */; };
 		058BCF7B12EF70D5003DF741 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 058BCF7912EF70D5003DF741 /* InfoPlist.strings */; };
 		058BCF7E12EF70D5003DF741 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 058BCF7D12EF70D5003DF741 /* main.m */; };
@@ -21,6 +24,11 @@
 
 /* Begin PBXFileReference section */
 		0532BBCD12F7F2290015357B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0532BBD312F7F29A0015357B /* Execution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Execution.m; sourceTree = "<group>"; };
+		0532BBD512F7F2AA0015357B /* Execution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Execution.h; sourceTree = "<group>"; };
+		0532BBDC12F83F5D0015357B /* Application.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Application.icns; sourceTree = "<group>"; };
+		0532BBE212F83FC70015357B /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		0532BBE412F83FE00015357B /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		058BCF6C12EF70D5003DF741 /* ProcessRenicer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProcessRenicer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		058BCF7012EF70D5003DF741 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		058BCF7312EF70D5003DF741 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -122,10 +130,12 @@
 		0595CCB712EFF85C006A51F8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0532BBE212F83FC70015357B /* AboutController.m */,
 				0595CCB812EFF85C006A51F8 /* ApplicationDelegate.m */,
 				0595CCD712F030CE006A51F8 /* MainWindowController.m */,
 				0595CCD212F0246E006A51F8 /* Process.m */,
 				0595CCE312F03753006A51F8 /* ProcessInfos.m */,
+				0532BBD312F7F29A0015357B /* Execution.m */,
 				0595CCB912EFF85C006A51F8 /* include */,
 			);
 			path = Classes;
@@ -138,6 +148,8 @@
 				0595CCDA12F030E7006A51F8 /* MainWindowController.h */,
 				0595CCD412F0247B006A51F8 /* Process.h */,
 				0595CCE612F03762006A51F8 /* ProcessInfos.h */,
+				0532BBD512F7F2AA0015357B /* Execution.h */,
+				0532BBE412F83FE00015357B /* AboutController.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -145,6 +157,7 @@
 		0595CCBC12EFF875006A51F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0532BBDC12F83F5D0015357B /* Application.icns */,
 				058BCF8512EF70D6003DF741 /* MainMenu.xib */,
 				0595CCC312EFFF32006A51F8 /* MainWindow.xib */,
 			);
@@ -240,6 +253,7 @@
 				058BCF7B12EF70D5003DF741 /* InfoPlist.strings in Resources */,
 				058BCF8712EF70D6003DF741 /* MainMenu.xib in Resources */,
 				0595CCC512EFFF32006A51F8 /* MainWindow.xib in Resources */,
+				0532BBDD12F83F5D0015357B /* Application.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +269,8 @@
 				0595CCD312F0246E006A51F8 /* Process.m in Sources */,
 				0595CCD812F030CE006A51F8 /* MainWindowController.m in Sources */,
 				0595CCE412F03753006A51F8 /* ProcessInfos.m in Sources */,
+				0532BBD412F7F29A0015357B /* Execution.m in Sources */,
+				0532BBE312F83FC70015357B /* AboutController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

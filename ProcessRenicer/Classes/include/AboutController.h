@@ -6,30 +6,21 @@
 /* $Id$ */
 
 /*!
- * @header      ApplicationDelegate.h
+ * @header      AboutController.h
  * @copyright   eosgarden 2011 - Jean-David Gadina <macmade@eosgarden.com>
  * @abstract    ...
  */
 
-@class MainWindowController;
-@class AboutController;
-
-@interface ApplicationDelegate: NSObject < NSApplicationDelegate >
+@interface AboutController: NSWindowController
 {
 @protected
     
-    MainWindowController * mainWindowController;
-    AboutController      * aboutWindowController;
+    
     
 @private
     
     id r1;
     id r2;
 }
-
-@property( nonatomic, retain ) IBOutlet AboutController * aboutWindowController;
-
-- ( IBAction )showMainWindow: ( id )sender;
-- ( IBAction )showAboutWindow: ( id )sender;
 
 @end

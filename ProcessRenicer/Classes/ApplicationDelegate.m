@@ -13,8 +13,11 @@
 
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
+#import "AboutController.h"
 
 @implementation ApplicationDelegate
+
+@synthesize aboutWindowController;
 
 - ( void )applicationDidFinishLaunching: ( NSNotification * )notification
 {
@@ -37,6 +40,15 @@
 - ( IBAction )showMainWindow: ( id )sender
 {
     [ mainWindowController showWindow: sender ];
+    [ NSApp activateIgnoringOtherApps: YES ];
+}
+
+- ( IBAction )showAboutWindow: ( id )sender
+{
+    ( void )sender;
+    
+    [ [ aboutWindowController window ] center ];
+    [ aboutWindowController showWindow: self ];
     [ NSApp activateIgnoringOtherApps: YES ];
 }
 
