@@ -110,7 +110,6 @@
     args[ 2 ] = ( char * )[ [ NSString stringWithFormat: @"%u", ( unsigned int )process.pid ] cStringUsingEncoding: NSASCIIStringEncoding  ];
     exec      = [ Execution new ];
     
-    NSLog( @"KILL: %s", args[ 0 ] );
     [ exec executeWithPrivileges: "/bin/kill" arguments: args io: NULL ];
     [ exec release ];
     [ process release ];
