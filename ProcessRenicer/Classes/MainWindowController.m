@@ -103,11 +103,11 @@
     }
     else if( [ [ column identifier ] isEqualToString: @"uid" ] )
     {
-        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.uid ];
+        value = [ NSString stringWithFormat: @"%i", ( int )process.uid ];
     }
     else if( [ [ column identifier ] isEqualToString: @"gid" ] )
     {
-        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.gid ];
+        value = [ NSString stringWithFormat: @"%i", ( int )process.gid ];
     }
     else if( [ [ column identifier ] isEqualToString: @"nice" ] )
     {
@@ -119,19 +119,41 @@
     }
     else if( [ [ column identifier ] isEqualToString: @"cpu" ] )
     {
-        value = [ NSString stringWithFormat: @"%u %%", ( unsigned int )process.cpu ];
+        value = [ NSString stringWithFormat: @"%.02f %%", process.cpu ];
     }
     else if( [ [ column identifier ] isEqualToString: @"mem" ] )
     {
-        value = [ NSString stringWithFormat: @"%u %%", ( unsigned int )process.mem ];
+        value = [ NSString stringWithFormat: @"%.02f %%", process.mem ];
     }
     else if( [ [ column identifier ] isEqualToString: @"rss" ] )
     {
-        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.rss ];
+        if( process.rss < 1024 )
+        {
+            value = [ NSString stringWithFormat: @"%u KB", ( unsigned int )process.rss ];
+        }
+        else if( process.rss < 1024 * 1024 )
+        {
+            value = [ NSString stringWithFormat: @"%.2f MB", ( CGFloat )( ( CGFloat )process.rss / ( CGFloat )1024 ) ];
+        }
+        else if( process.rss < 1024 * 1024 * 1024 )
+        {
+            value = [ NSString stringWithFormat: @"%.2f GB", ( CGFloat )( ( CGFloat )process.rss / ( CGFloat )( 1024 * 1024 ) ) ];
+        }
     }
     else if( [ [ column identifier ] isEqualToString: @"vsz" ] )
     {
-        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.vsz ];
+        if( process.vsz < 1024 )
+        {
+            value = [ NSString stringWithFormat: @"%u KB", ( unsigned int )process.vsz ];
+        }
+        else if( process.vsz < 1024 * 1024 )
+        {
+            value = [ NSString stringWithFormat: @"%.2f MB", ( CGFloat )( ( CGFloat )process.vsz / ( CGFloat )1024 ) ];
+        }
+        else if( process.vsz < 1024 * 1024 * 1024 )
+        {
+            value = [ NSString stringWithFormat: @"%.2f GB", ( CGFloat )( ( CGFloat )process.vsz / ( CGFloat )( 1024 * 1024 ) ) ];
+        }
     }
     else if( [ [ column identifier ] isEqualToString: @"paddr" ] )
     {

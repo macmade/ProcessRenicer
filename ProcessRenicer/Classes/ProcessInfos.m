@@ -201,18 +201,18 @@
             
             @try
             {
-                
-                /*
-   10     1     0     0  0  33  d7f52a0   6868  2451588   0.0  0.1 Fri Jan 28 10:19:05 2011     root    
-
-                */
-                
-                process.ppid  = [ [ [ line substringFromIndex: 6  ] substringToIndex: 5 ] integerValue ];
-                process.uid   = [ [ [ line substringFromIndex: 12 ] substringToIndex: 5 ] integerValue ];
-                process.gid   = [ [ [ line substringFromIndex: 18 ] substringToIndex: 5 ] integerValue ];
-                process.nice  = [ [ [ line substringFromIndex: 24 ] substringToIndex: 2 ] integerValue ];
-                process.pri   = [ [ [ line substringFromIndex: 27 ] substringToIndex: 3 ] integerValue ];
-                process.paddr = [ NSString stringWithFormat: @"0x%@", [ [ [ line substringFromIndex: 32 ] substringToIndex: 7 ] uppercaseString ] ];
+                process.ppid   = [ [ [ line substringFromIndex: 6  ] substringToIndex: 5 ] integerValue ];
+                process.uid    = [ [ [ line substringFromIndex: 12 ] substringToIndex: 5 ] integerValue ];
+                process.gid    = [ [ [ line substringFromIndex: 18 ] substringToIndex: 5 ] integerValue ];
+                process.nice   = [ [ [ line substringFromIndex: 24 ] substringToIndex: 2 ] integerValue ];
+                process.pri    = [ [ [ line substringFromIndex: 27 ] substringToIndex: 3 ] integerValue ];
+                process.paddr  = [ NSString stringWithFormat: @"0x%@", [ [ [ line substringFromIndex: 32 ] substringToIndex: 7 ] uppercaseString ] ];
+                process.rss    = [ [ [ line substringFromIndex: 40 ] substringToIndex: 6 ] integerValue ];
+                process.vsz    = [ [ [ line substringFromIndex: 47 ] substringToIndex: 8 ] integerValue ];
+                process.cpu    = [ [ [ line substringFromIndex: 56 ] substringToIndex: 5 ] floatValue ];
+                process.mem    = [ [ [ line substringFromIndex: 62 ] substringToIndex: 4 ] floatValue ];
+                process.lstart = [ NSString stringWithFormat: @"%@ %@ - %@", [ [ line substringFromIndex: 67 ] substringToIndex: 10 ], [ [ line substringFromIndex: 87 ] substringToIndex: 4 ], [ [ line substringFromIndex: 78 ] substringToIndex: 8 ] ];
+                process.user   = [ [ line substringFromIndex: 96 ] substringToIndex: [ line length ] - 96 ];
             }
             @catch( NSException * e )
             {

@@ -21,8 +21,8 @@
     
     NSInteger   pid;        /* Process ID */
     NSString  * name;       /* Process name */
-    NSInteger   cpu;        /* CPU usage */
-    NSInteger   mem;        /* Memory usage */
+    CGFloat     cpu;        /* CPU usage */
+    CGFloat     mem;        /* Memory usage */
     NSString  * command;    /* Launch command */
     NSInteger   gid;        /* Effective group ID */
     NSString  * lstart;     /* Start time */
@@ -44,8 +44,8 @@
 
 @property( assign, readwrite ) NSInteger  pid;
 @property( copy,   readwrite ) NSString * name;
-@property( assign, readwrite ) NSInteger  cpu;
-@property( assign, readwrite ) NSInteger  mem;
+@property( assign, readwrite ) CGFloat    cpu;
+@property( assign, readwrite ) CGFloat    mem;
 @property( copy,   readwrite ) NSString * command;
 @property( assign, readwrite ) NSInteger  gid;
 @property( copy,   readwrite ) NSString * lstart;
