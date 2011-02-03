@@ -74,6 +74,7 @@
         fh     = [ pipe fileHandleForReading ];
         data   = [ fh readDataToEndOfFile ];
         output = [ [ NSString alloc ] initWithData: data encoding: NSASCIIStringEncoding ];
+        
         lines  = [ NSMutableArray arrayWithArray: [ output componentsSeparatedByString: @"\n" ] ];
         
         [ lines removeObjectAtIndex: 0 ];
@@ -169,10 +170,7 @@
         [ task setStandardOutput: pipe ];
         [ task launch ];
         
-        while( [ task isRunning ] == YES )
-        {
-            usleep( 10 );
-        }
+        usleep( 10 );
         
         fh     = [ pipe fileHandleForReading ];
         data   = [ fh readDataToEndOfFile ];
