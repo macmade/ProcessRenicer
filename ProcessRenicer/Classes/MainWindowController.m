@@ -28,6 +28,7 @@
 @synthesize pidValue;
 @synthesize nameValue;
 @synthesize image;
+@synthesize search;
 
 - ( id )init
 {
@@ -155,6 +156,15 @@
     [ NSApp endSheet: reniceView returnCode: 1 ];
 }
 
+- ( IBAction )filter: ( id )sender
+{
+    ( void )sender;
+    
+    processInfos.filter = [ sender stringValue ];
+    
+    [ table reloadData ];
+}
+
 - ( void )executeRenice
 {
     NSInteger    nice;
@@ -226,7 +236,6 @@
     
     if( [ [ column identifier ] isEqualToString: @"pid" ] )
     {
-        
         value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.pid ];
     }
     else if( [ [ column identifier ] isEqualToString: @"ppid" ] )

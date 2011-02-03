@@ -23,6 +23,7 @@
     NSLock              * lock;
     NSString            * orderingField;
     NSComparisonResult    ordering;
+    NSString            * filter;
     
 @private
     
@@ -30,8 +31,9 @@
     id r2;
 }
 
-@property( readonly ) NSArray * processes;
-@property( readonly ) NSLock  * lock;
+@property(       readonly  ) NSArray  * processes;
+@property(       readonly  ) NSLock   * lock;
+@property( copy, readwrite ) NSString * filter;
 
 - ( void )setOrderingField: ( NSString * )field order: ( NSComparisonResult )order;
 

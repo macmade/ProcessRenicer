@@ -246,6 +246,7 @@
 @implementation ProcessInfos
 
 @synthesize lock;
+@synthesize filter;
 
 - ( id )init
 {
@@ -262,6 +263,7 @@
 
 - ( void )dealloc
 {
+    [ filter release ];
     [ lock release ];
     [ processes release ];
     [ super dealloc ];
@@ -269,13 +271,34 @@
 
 - ( NSArray * )processes
 {
-    NSArray * values;
+    const char     * searchString;
+    NSMutableArray * values;
+    NSMutableArray * filteredValues;
+    Process        * process;
     
     while( [ self.lock tryLock ] == NO );
     
-    values = [ processes allValues ];
+    values         = [ NSMutableArray arrayWithArray: [ processes allValues ] ];
+    filteredValues = [ NSMutableArray arrayWithCapacity: [ values count ] ];
     
-    values = [ values sortedArrayUsingComparator: ^( Process * obj1, Process * obj2 )
+    if( filter != nil && [ filter length ] > 0 && [ filter isEqualToString: @"" ] == NO )
+    {
+        searchString = [ [ filter lowercaseString ] cStringUsingEncoding: NSASCIIStringEncoding ];
+        
+        for( process in values )
+        {
+            if( strncmp( searchString, [ [ process.name lowercaseString ] cStringUsingEncoding: NSASCIIStringEncoding ], strlen( searchString ) ) == 0 )
+            {
+                [ filteredValues addObject: process ];
+            }
+        }
+    }
+    else
+    {
+        filteredValues = values;
+    }
+    
+    values = [ NSMutableArray arrayWithArray: [ filteredValues sortedArrayUsingComparator: ^( Process * obj1, Process * obj2 )
         {
             NSComparisonResult result;
             
@@ -440,7 +463,7 @@
             
             return result;
         }
-    ];
+    ] ];
     
     [ self.lock unlock ];
     

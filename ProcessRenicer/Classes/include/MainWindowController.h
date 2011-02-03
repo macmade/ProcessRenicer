@@ -33,6 +33,7 @@
     NSTextField       * pidValue;
     NSTextField       * nameValue;
     NSImageView       * image;
+    NSSearchField     * search;
     NSTableColumn     * selectedColumn;
     NSComparisonResult  selectOrdering;
     ProcessInfos      * processInfos;
@@ -54,12 +55,14 @@
 @property( assign, readonly ) IBOutlet NSTextField   * pidValue;
 @property( assign, readonly ) IBOutlet NSTextField   * nameValue;
 @property( assign, readonly ) IBOutlet NSImageView   * image;
+@property( assign, readonly ) IBOutlet NSSearchField * search;
 
 - ( IBAction )renice: ( id )sender;
 - ( IBAction )quit: ( id )sender;
 - ( IBAction )forceQuit: ( id )sender;
 - ( IBAction )confirmRenice: ( id )sender;
 - ( IBAction )cancelRenice: ( id )sender;
+- ( IBAction )filter: ( id )sender;
 - ( void )refresh: ( id )null;
 - ( void )didEndSheet: ( NSWindow * )window returnCode: ( NSInteger )code contextInfo: ( id )context;
 - ( void )executeRenice;
