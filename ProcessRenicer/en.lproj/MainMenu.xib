@@ -450,7 +450,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="617408392">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272892928</int>
-								<string key="NSContents">Version 1.0</string>
+								<string key="NSContents">Version 1.1</string>
 								<object class="NSFont" key="NSSupport" id="22">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">9</double>
@@ -541,7 +541,6 @@
 							<string key="NSFrame">{{117, 20}, {88, 11}}</string>
 							<reference key="NSSuperview" ref="364403535"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="953439576">
 								<int key="NSCellFlags">68288064</int>
