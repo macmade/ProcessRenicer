@@ -442,7 +442,7 @@
 						<object class="NSTextField" id="102255754">
 							<reference key="NSNextResponder" ref="364403535"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{135, 134}, {54, 11}}</string>
+							<string key="NSFrame">{{129, 134}, {63, 11}}</string>
 							<reference key="NSSuperview" ref="364403535"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="440416338"/>
@@ -450,7 +450,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="617408392">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272892928</int>
-								<string key="NSContents">Version 1.1</string>
+								<string key="NSContents">Version 1.1.1</string>
 								<object class="NSFont" key="NSSupport" id="22">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">9</double>
@@ -541,6 +541,7 @@
 							<string key="NSFrame">{{117, 20}, {88, 11}}</string>
 							<reference key="NSSuperview" ref="364403535"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="953439576">
 								<int key="NSCellFlags">68288064</int>
@@ -1088,12 +1089,12 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="686876959"/>
-							<reference ref="102255754"/>
 							<reference ref="785679941"/>
 							<reference ref="1038945176"/>
 							<reference ref="440416338"/>
 							<reference ref="669777623"/>
 							<reference ref="595586591"/>
+							<reference ref="102255754"/>
 						</object>
 						<reference key="parent" ref="383612411"/>
 					</object>
