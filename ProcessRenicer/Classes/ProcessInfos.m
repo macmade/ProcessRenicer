@@ -279,13 +279,163 @@
         {
             NSComparisonResult result;
             
-            if( obj1.pid > obj2.pid )
+            if( [ orderingField isEqualToString: @"pid" ] )
             {
-                result = ( NSComparisonResult )NSOrderedDescending;
+                if( obj1.pid > obj2.pid )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"name" ] )
+            {
+                if( [ obj1.name caseInsensitiveCompare: obj2.name ] == NSOrderedDescending )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"user" ] )
+            {
+                if( [ obj1.user caseInsensitiveCompare: obj2.user ] == NSOrderedDescending )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"uid" ] )
+            {
+                if( obj1.uid > obj2.uid )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"gid" ] )
+            {
+                if( obj1.gid > obj2.gid )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"ppid" ] )
+            {
+                if( obj1.ppid > obj2.ppid )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"nice" ] )
+            {
+                if( obj1.nice > obj2.nice )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"pri" ] )
+            {
+                if( obj1.pri > obj2.pri )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"cpu" ] )
+            {
+                if( obj1.cpu > obj2.cpu )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"mem" ] )
+            {
+                if( obj1.mem > obj2.mem )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"rss" ] )
+            {
+                if( obj1.rss > obj2.rss )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"vsz" ] )
+            {
+                if( obj1.vsz > obj2.vsz )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"paddr" ] )
+            {
+                if( [ obj1.paddr compare: obj2.paddr ] == NSOrderedDescending )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+            }
+            else if( [ orderingField isEqualToString: @"lstart" ] )
+            {
+                if( [ obj1.lstart caseInsensitiveCompare: obj2.lstart ] == NSOrderedDescending )
+                {
+                    result = ( ordering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
+                else
+                {
+                    result = ( ordering == NSOrderedDescending ) ? NSOrderedDescending : NSOrderedAscending;
+                }
             }
             else
             {
-                result = ( NSComparisonResult )NSOrderedAscending;
+                result = ordering;
             }
             
             return result;
@@ -295,6 +445,12 @@
     [ self.lock unlock ];
     
     return values;
+}
+
+- ( void )setOrderingField: ( NSString * )field order: ( NSComparisonResult )order
+{
+    orderingField = field;
+    ordering      = order;
 }
 
 @end

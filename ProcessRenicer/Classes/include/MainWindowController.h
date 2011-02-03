@@ -22,19 +22,21 @@
 {
 @protected
     
-    NSWindow      * reniceView;
-    NSTimer       * timer;
-    NSTableView   * table;
-    NSToolbarItem * reniceButton;
-    NSToolbarItem * quitButton;
-    NSToolbarItem * forceQuitButton;
-    NSSlider      * slider;
-    NSTextField   * niceValue;
-    NSTextField   * pidValue;
-    NSTextField   * nameValue;
-    NSImageView   * image;
-    ProcessInfos  * processInfos;
-    Process       * activeProcess;
+    NSWindow          * reniceView;
+    NSTimer           * timer;
+    NSTableView       * table;
+    NSToolbarItem     * reniceButton;
+    NSToolbarItem     * quitButton;
+    NSToolbarItem     * forceQuitButton;
+    NSSlider          * slider;
+    NSTextField       * niceValue;
+    NSTextField       * pidValue;
+    NSTextField       * nameValue;
+    NSImageView       * image;
+    NSTableColumn     * selectedColumn;
+    NSComparisonResult  selectOrdering;
+    ProcessInfos      * processInfos;
+    Process           * activeProcess;
     
 @private
     

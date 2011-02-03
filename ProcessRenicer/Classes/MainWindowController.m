@@ -51,11 +51,16 @@
     [ table setDataSource: self ];
     [ table setDelegate  : self ];
     
-    timer = [ NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector( refresh: ) userInfo: nil repeats: YES ];
+    timer          = [ NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector( refresh: ) userInfo: nil repeats: YES ];
+    selectedColumn = [ table tableColumnWithIdentifier: @"pid" ];
+    selectOrdering = NSOrderedAscending;
     
     [ reniceButton    setEnabled: NO ];
     [ quitButton      setEnabled: NO ];
     [ forceQuitButton setEnabled: NO ];
+    
+    [ table setIndicatorImage: [ NSImage imageNamed: @"NSAscendingSortIndicator" ] inTableColumn: selectedColumn ];
+    [ processInfos setOrderingField: @"pid" order: NSOrderedAscending ];
 }
 
 - ( IBAction )renice: ( id )sender
@@ -346,6 +351,32 @@
     [ reniceButton    setEnabled: YES ];
     [ quitButton      setEnabled: YES ];
     [ forceQuitButton setEnabled: YES ];
+}
+
+- ( void )tableView: ( NSTableView * )tableView mouseDownInHeaderOfTableColumn: ( NSTableColumn * )tableColumn
+{
+    if( [ [ tableColumn identifier ] isEqualToString: @"icon" ] )
+    {
+        return;
+    }
+    
+    if( tableColumn == selectedColumn )
+    {
+        [ tableView setIndicatorImage: ( selectOrdering == NSOrderedAscending ) ? [ NSImage imageNamed: @"NSDescendingSortIndicator" ] : [ NSImage imageNamed: @"NSAscendingSortIndicator" ] inTableColumn: selectedColumn ];
+        
+        selectOrdering = ( selectOrdering == NSOrderedAscending ) ? NSOrderedDescending : NSOrderedAscending;
+    }
+    else
+    {
+        [ tableView setIndicatorImage: nil inTableColumn: selectedColumn ];
+        
+        selectedColumn = tableColumn;
+    
+        [ tableView setIndicatorImage: ( selectOrdering == NSOrderedAscending ) ? [ NSImage imageNamed: @"NSAscendingSortIndicator" ] : [ NSImage imageNamed: @"NSDescendingSortIndicator" ] inTableColumn: selectedColumn ];
+    }
+    
+    [ processInfos setOrderingField: [ selectedColumn identifier ] order: selectOrdering ];
+    [ tableView reloadData ];
 }
 
 @end

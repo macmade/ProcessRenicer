@@ -21,6 +21,8 @@
     
     NSMutableDictionary * processes;
     NSLock              * lock;
+    NSString            * orderingField;
+    NSComparisonResult    ordering;
     
 @private
     
@@ -30,5 +32,7 @@
 
 @property( readonly ) NSArray * processes;
 @property( readonly ) NSLock  * lock;
+
+- ( void )setOrderingField: ( NSString * )field order: ( NSComparisonResult )order;
 
 @end
