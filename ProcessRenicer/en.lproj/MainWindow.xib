@@ -73,7 +73,7 @@
 					<bool key="NSToolbarPrefersToBeShown">YES</bool>
 					<bool key="NSToolbarShowsBaselineSeparator">YES</bool>
 					<bool key="NSToolbarAllowsUserCustomization">YES</bool>
-					<bool key="NSToolbarAutosavesConfiguration">NO</bool>
+					<bool key="NSToolbarAutosavesConfiguration">YES</bool>
 					<int key="NSToolbarDisplayMode">1</int>
 					<int key="NSToolbarSizeMode">2</int>
 					<object class="NSMutableDictionary" key="NSToolbarIBIdentifiedItems">
@@ -124,7 +124,6 @@
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{0, 14}, {96, 22}}</string>
 									<reference key="NSSuperview"/>
-									<reference key="NSWindow"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSearchFieldCell" key="NSCell" id="150155008">
 										<int key="NSCellFlags">343014976</int>
@@ -386,7 +385,7 @@
 											<string key="NSFrameSize">{1310, 784}</string>
 											<reference key="NSSuperview" ref="830431095"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="481339392"/>
+											<reference key="NSNextKeyView" ref="354047258"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="955676598">
 												<reference key="NSNextResponder" ref="354047258"/>
@@ -857,7 +856,6 @@
 									<string key="NSFrame">{{1, 786}, {1295, 15}}</string>
 									<reference key="NSSuperview" ref="103633965"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="103633965"/>
 									<string key="NSAction">_doScroller:</string>
@@ -883,7 +881,7 @@
 							<string key="NSFrame">{{-1, -25}, {1312, 802}}</string>
 							<reference key="NSSuperview" ref="825777577"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="354047258"/>
+							<reference key="NSNextKeyView" ref="830431095"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="481339392"/>
 							<reference key="NSHScroller" ref="978899864"/>
@@ -944,7 +942,6 @@
 							<string key="NSFrame">{{518, 12}, {96, 32}}</string>
 							<reference key="NSSuperview" ref="54351659"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="814862130">
 								<int key="NSCellFlags">67239424</int>
