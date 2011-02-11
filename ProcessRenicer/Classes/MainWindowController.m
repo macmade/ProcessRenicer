@@ -181,7 +181,7 @@
     }
     else if( nice < 0 )
     {
-        args[ 0 ] = ( char * )[ [ NSString stringWithFormat: @"-%i", ( int )nice ] cStringUsingEncoding: NSASCIIStringEncoding ];
+        args[ 0 ] = ( char * )[ [ NSString stringWithFormat: @"%i", ( int )nice ] cStringUsingEncoding: NSASCIIStringEncoding ];
     }
     else if( nice > 0 )
     {
@@ -252,7 +252,7 @@
     }
     else if( [ [ column identifier ] isEqualToString: @"nice" ] )
     {
-        value = [ NSString stringWithFormat: @"%u", ( unsigned int )process.nice ];
+        value = [ NSString stringWithFormat: @"%i", ( int )process.nice ];
     }
     else if( [ [ column identifier ] isEqualToString: @"pri" ] )
     {
