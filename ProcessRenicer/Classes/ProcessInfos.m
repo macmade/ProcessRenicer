@@ -269,7 +269,7 @@
 
 - ( NSArray * )processes
 {
-    const char     * searchString;
+    NSRange          range;
     NSMutableArray * values;
     NSMutableArray * filteredValues;
     Process        * process;
@@ -281,11 +281,11 @@
     
     if( filter != nil && [ filter length ] > 0 && [ filter isEqualToString: @"" ] == NO )
     {
-        searchString = [ [ filter lowercaseString ] cStringUsingEncoding: NSASCIIStringEncoding ];
-        
         for( process in values )
         {
-            if( strncmp( searchString, [ [ process.name lowercaseString ] cStringUsingEncoding: NSASCIIStringEncoding ], strlen( searchString ) ) == 0 )
+            range = [ [ process.name lowercaseString ] rangeOfString: [ filter lowercaseString ] ];
+            
+            if( range.location != NSNotFound )
             {
                 [ filteredValues addObject: process ];
             }
