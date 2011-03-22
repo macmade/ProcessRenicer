@@ -42,8 +42,10 @@
 
 - ( void )dealloc
 {
-    [ timer invalidate ];
+    [ timer        invalidate ];
     [ processInfos release ];
+    [ exec         release ];
+    
     [ super dealloc ];
 }
 
@@ -105,7 +107,6 @@
     char       * args[ 3 ];
     NSIndexSet * index;
     Process    * process;
-    Execution  * exec;
     
     ( void )sender;
     
@@ -114,10 +115,13 @@
     args[ 0 ] = "-s";
     args[ 1 ] = "int";
     args[ 2 ] = ( char * )[ [ NSString stringWithFormat: @"%u", ( unsigned int )process.pid ] cStringUsingEncoding: NSASCIIStringEncoding  ];
-    exec      = [ Execution new ];
+    
+    if( exec == nil )
+    {
+        exec = [ Execution new ];
+    }
     
     [ exec executeWithPrivileges: "/bin/kill" arguments: args io: NULL ];
-    [ exec release ];
     [ process release ];
 }
 
@@ -126,7 +130,6 @@
     char       * args[ 3 ];
     NSIndexSet * index;
     Process    * process;
-    Execution  * exec;
     
     ( void )sender;
     
@@ -135,10 +138,13 @@
     args[ 0 ] = "-s";
     args[ 1 ] = "kill";
     args[ 2 ] = ( char * )[ [ NSString stringWithFormat: @"%u", ( unsigned int )process.pid ] cStringUsingEncoding: NSASCIIStringEncoding  ];
-    exec      = [ Execution new ];
+    
+    if( exec == nil )
+    {
+        exec = [ Execution new ];
+    }
     
     [ exec executeWithPrivileges: "/bin/kill" arguments: args io: NULL ];
-    [ exec release ];
     [ process release ];
 }
 
@@ -168,11 +174,15 @@
 - ( void )executeRenice
 {
     NSInteger    nice;
-    Execution  * exec;
     char       * args[ 2 ];
     
     nice      = [ slider integerValue ];
-    exec      = [ Execution new ];
+    
+    if( exec == nil )
+    {
+        exec = [ Execution new ];
+    }
+    
     args[ 1 ] = ( char * )[ [ NSString stringWithFormat: @"%u", ( unsigned int )[ activeProcess pid ] ] cStringUsingEncoding: NSASCIIStringEncoding ];
     
     if( nice == 0 )
@@ -189,7 +199,6 @@
     }
     
     [ exec executeWithPrivileges: "/usr/bin/renice" arguments: args io: NULL ];
-    [ exec release ];
 }
 
 - ( void )refresh: ( id )null

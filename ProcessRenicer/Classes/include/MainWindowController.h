@@ -13,6 +13,7 @@
 
 @class ProcessInfos;
 @class Process;
+@class Execution;
 
 /*!
  * @class       MainWindowController
@@ -38,6 +39,7 @@
     NSComparisonResult  selectOrdering;
     ProcessInfos      * processInfos;
     Process           * activeProcess;
+    Execution         * exec;
     
 @private
     
