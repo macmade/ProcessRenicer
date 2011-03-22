@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">10J567</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1294</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1294</string>
+			<string key="NS.object.0">1305</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -397,7 +397,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{148, 677}, {325, 338}}</string>
 				<int key="NSWTFlags">603979776</int>
-				<string key="NSWindowTitle">About ConsoleGrowl</string>
+				<string key="NSWindowTitle">About ProcessRenicer</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<object class="NSView" key="NSWindowView" id="364403535">
@@ -450,7 +450,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="617408392">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272892928</int>
-								<string key="NSContents">Version 1.1.2</string>
+								<string key="NSContents">Version 1.1.3</string>
 								<object class="NSFont" key="NSSupport" id="22">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">9</double>
@@ -541,6 +541,7 @@
 							<string key="NSFrame">{{117, 20}, {88, 11}}</string>
 							<reference key="NSSuperview" ref="364403535"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="953439576">
 								<int key="NSCellFlags">68288064</int>
@@ -1081,6 +1082,7 @@
 							<reference ref="364403535"/>
 						</object>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Window - About ConsoleGrowl</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">578</int>
