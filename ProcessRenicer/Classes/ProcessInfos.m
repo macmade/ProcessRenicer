@@ -169,8 +169,7 @@
         [ task setArguments: [ NSArray arrayWithObjects: @"-ax", @"-o", @"pid,ppid,uid,gid,nice,pri,paddr,rss,vsz,%cpu,%mem,lstart,user", nil ] ];
         [ task setStandardOutput: pipe ];
         [ task launch ];
-        
-        usleep( 10 );
+        [ task waitUntilExit ];
         
         fh     = [ pipe fileHandleForReading ];
         data   = [ fh readDataToEndOfFile ];
