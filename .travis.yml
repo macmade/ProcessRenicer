@@ -1,0 +1,4 @@
+language: objective-c
+xcode_project: ProcessRenicer.xcodeproj
+xcode_scheme: ProcessRenicer
+
