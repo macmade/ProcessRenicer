@@ -241,6 +241,7 @@
     ( void )column;
     ( void )rowIndex;
     
+    value   = @"";
     process = [ [ processInfos.processes objectAtIndex: rowIndex ] retain ];
     
     if( [ [ column identifier ] isEqualToString: @"pid" ] )
